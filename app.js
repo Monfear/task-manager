@@ -1,5 +1,6 @@
 import express from 'express';
 import tasksRouter from "./routers/tasksRouter.js";
+import connectDB from "./db/connection.js";
 
 // setup app
 const app = express();
@@ -7,6 +8,8 @@ const port = 3000;
 
 app.listen(port, () => {
     console.log(`app is listening on port ${port}`);
+
+    connectDB();
 });
 
 // middlewares
