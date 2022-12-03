@@ -4,6 +4,8 @@ export const showAllTasks = (req, res) => {
 
 export const createTask = (req, res) => {
     const task = req.body;
+
+    res.json(req.body);
 };
 
 export const getTask = (req, res) => {
