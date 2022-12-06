@@ -3,11 +3,11 @@ dotenv.config();
 
 import mongoose from "mongoose";
 
-const DB_URI = `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}\
-@cluster0.tnt1pd3.mongodb.net/?retryWrites=true&w=majority`;
+// const DB_URI = `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}\
+// @cluster0.tnt1pd3.mongodb.net/?retryWrites=true&w=majority`;
 
-// const DB_URI = `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@cluster0.tnt1pd3.mongodb.net/\
-// ${process.env.DB_NAME}?retryWrites=true&w=majority`;
+const DB_URI = `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@cluster0.tnt1pd3.mongodb.net/\
+${process.env.DB_NAME}?retryWrites=true&w=majority`;
 
 function connectDB() {
     mongoose
