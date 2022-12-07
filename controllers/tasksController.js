@@ -1,28 +1,118 @@
 import Task from "./../models/Task.js";
 
-export const showAllTasks = (req, res) => {
-    res.status(200).send('<h1>tasks home</h1>');
+// @ get all
+export const showAllTasks = async (req, res) => {
+    try {
+        const tasks = await Task
+            .find()
+            .sort({
+                createdAt: -1,
+            });
+
+        res.status(200).json(tasks);
+
+    } catch (error) {
+        res.status(500).json({
+            errMsg: 'tasks fetching failed'
+        });
+    } finally {
+        console.log('showAllTasks has invoken');
+    }
 };
 
-export const createTask = async (req, res) => {
-    const task = await Task.create(req.body);
+// @ get single
+export const getTask = async (req, res) => {
+    try {
+        const taskID = req.params.id;
 
-    res.status(201).json(task);
-};
+        const task = await Task.findById(taskID);
 
-export const getTask = (req, res) => {
-    res.status(200).json(
-        {
-            id: req.params.id
+        if (!task) {
+            return res.status(404).json({
+                errMsg: 'task with provided id doesn\'t exist'
+            });
         }
-    );
+
+        res.status(200).json(task);
+    } catch (error) {
+        res.status(500).json({
+            errMsg: `task fetching failed => ${error.message}`
+        });
+
+    } finally {
+        console.log('getTask has invoken');
+    }
 };
 
-export const updateTask = (req, res) => {
-    res.status(200).send('<h1>update single task</h1>');
+// * create
+export const createTask = async (req, res) => {
+    try {
+        const task = await Task.create(req.body);
+
+        res.status(201).json(task);
+    } catch (error) {
+        res.status(500).json({
+            errMsg: `task deletion failed => ${error.message}`
+        });
+    } finally {
+        console.log('createTask has invoken');
+    }
 };
 
-export const deleteTask = (req, res) => {
-    res.status(204).send('<h1>delete single task</h1>');
-    // res.status(200).send('<h1>delete single task</h1>');
+// ? update
+export const updateTask = async (req, res) => {
+    try {
+        const taskID = req.params.id;
+        const body = req.body;
+
+        const task = await Task.findByIdAndUpdate(taskID, body, {
+            new: true,
+            runValidators: true,
+        });
+
+        if (!task) {
+            return res.status(404).json({
+                errMsg: 'task with provided id doesn\'t exist'
+            });
+        }
+
+        res.status(200).json({
+            infoMsg: `task with id: ${taskID} has edited`,
+            updatedData: task,
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            errMsg: `task edition failed => ${error.message}`,
+        });
+
+    } finally {
+        console.log('updateTask has invoken');
+    }
+};
+
+// ! delete
+export const deleteTask = async (req, res) => {
+    try {
+        const taskID = req.params.id;
+
+        const task = await Task.findByIdAndDelete(taskID);
+
+        if (!task) {
+            return res.status(404).json({
+                errMsg: 'task with provided id doesn\'t exist',
+            });
+        }
+
+        res.status(200).json({
+            infoMsg: `task with id: ${taskID} has deleted`,
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            errMsg: `task deletion failed => ${error.message}`,
+        });
+    } finally {
+        console.log('deleteTask has invoken');
+    }
 };
