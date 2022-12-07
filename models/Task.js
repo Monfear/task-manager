@@ -12,7 +12,14 @@ const taskSchema = new Schema({
         type: Boolean,
         default: false
     }
-});
+},
+    {
+        timestamps: {
+            createdAt: true,
+            updatedAt: true
+        }
+    }
+);
 
 const Task = model('Task', taskSchema);
 
