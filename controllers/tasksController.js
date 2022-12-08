@@ -9,7 +9,11 @@ export const showAllTasks = async (req, res) => {
                 createdAt: -1,
             });
 
-        res.status(200).json(tasks);
+        res.status(200).json({
+            success: true,
+            records: tasks.length,
+            data: tasks,
+        });
 
     } catch (error) {
         res.status(500).json({
@@ -63,9 +67,9 @@ export const createTask = async (req, res) => {
 export const updateTask = async (req, res) => {
     try {
         const taskID = req.params.id;
-        const body = req.body;
+        const data = req.body;
 
-        const task = await Task.findByIdAndUpdate(taskID, body, {
+        const task = await Task.findByIdAndUpdate(taskID, data, {
             new: true,
             runValidators: true,
         });
