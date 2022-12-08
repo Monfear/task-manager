@@ -1,4 +1,4 @@
-export function showRequestInfo(req, res, next) {
+function showRequestInfo(req, res, next) {
     console.log(`
         ** new request has made **
         host: ${req.hostname}
@@ -9,3 +9,5 @@ export function showRequestInfo(req, res, next) {
 
     next();
 }
+
+export default showRequestInfo;
