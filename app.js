@@ -1,4 +1,5 @@
 import express from 'express';
+
 import tasksRouter from "./routers/tasksRouter.js";
 import connectDB from "./db/connection.js";
 
@@ -14,6 +15,7 @@ app.listen(port, () => {
 
 // middlewares
 app.use(express.json());
+app.use(express.static('./public'));
 
 // routes
 app.get('/', (req, res) => {
