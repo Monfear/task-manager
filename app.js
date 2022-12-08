@@ -2,7 +2,7 @@ import express from 'express';
 
 import tasksRouter from "./routers/tasksRouter.js";
 import connectDB from "./db/connection.js";
-import { showRequestInfo } from "./middlewares/showRequestInfo.js";
+import showRequestInfo from "./middlewares/showRequestInfo.js";
 
 // setup app
 const app = express();
@@ -28,4 +28,4 @@ app.use('/tasks', tasksRouter);
 
 app.get('*', (req, res) => {
     res.status(404).send('<h1>not found</h1>');
-});
+}); 
