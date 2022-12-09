@@ -14,6 +14,10 @@ app.listen(port, () => {
     connectDB();
 });
 
+// view engine
+app.set('view engine', 'ejs');
+app.set('views', 'views/routes');
+
 // middlewares
 app.use(express.json());
 app.use(express.static('./public'));
@@ -21,11 +25,13 @@ app.use(showRequestInfo);
 
 // routes
 app.get('/', (req, res) => {
-    res.status(200).send('<a href="/tasks">move to tasks</a>');
+    res.status(200).render('index.ejs', {
+        title: 'Home'
+    });
 });
 
 app.use('/tasks', tasksRouter);
 
 app.get('*', (req, res) => {
     res.status(404).send('<h1>not found</h1>');
-}); 
+});
