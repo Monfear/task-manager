@@ -9,15 +9,14 @@ export const showAllTasks = async (req, res) => {
                 createdAt: -1,
             });
 
-        res.status(200).json({
-            success: true,
-            records: tasks.length,
-            data: tasks,
+        res.status(200).render('index.ejs', {
+            title: 'Home',
+            tasks: tasks
         });
 
     } catch (error) {
-        res.status(500).json({
-            errMsg: 'tasks fetching failed'
+        res.status(500).render('404.ejs', {
+            title: 'fetch failed'
         });
     } finally {
         console.log('showAllTasks has invoken');
