@@ -25,9 +25,7 @@ app.use(showRequestInfo);
 
 // routes
 app.get('/', (req, res) => {
-    res.status(200).render('index.ejs', {
-        title: 'Home'
-    });
+    res.status(200).redirect('/tasks');
 });
 
 app.use('/tasks', tasksRouter);
