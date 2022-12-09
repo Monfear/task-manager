@@ -33,5 +33,7 @@ app.get('/', (req, res) => {
 app.use('/tasks', tasksRouter);
 
 app.get('*', (req, res) => {
-    res.status(404).send('<h1>not found</h1>');
+    res.status(404).render('404.ejs', {
+        title: 'Not Found'
+    });
 });
