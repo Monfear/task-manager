@@ -1,15 +1,17 @@
 import { Router } from 'express';
-import { showAllTasks, createTask, getTask, updateTask, deleteTask } from
-    './../controllers/tasksController.js';
+import { getAllTasks, getSingleTask, updateTask, deleteTask, getCreateTask, createTask } from './../controllers/tasksController.js';
 
 const tasksRouter = Router();
 
 tasksRouter.route('/')
-    .get(showAllTasks)
+    .get(getAllTasks);
+
+tasksRouter.route('/create')
+    .get(getCreateTask)
     .post(createTask);
 
-tasksRouter.route('/:id')
-    .get(getTask)
+tasksRouter.route('/task/:id')
+    .get(getSingleTask)
     .patch(updateTask)
     .delete(deleteTask);
 
