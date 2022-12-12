@@ -2,10 +2,12 @@
 <html lang="en">
         <%- include('./../partials/_head.ejs') %>
 
-    <body>
+    <body id="index">
         <%- include('./../partials/_navbar.ejs') %>
 
-            <h1>home</h1>
+            <section class="Home">
+
+            </section>
 
             <% if (tasks.length > 0) { %>
                 <% tasks.forEach((task) => { %>
@@ -16,7 +18,7 @@
             <% } else { %>
                 <p>no tasks to display</p>
             <% } %>
-            
+
         <%- include('./../partials/_footer.ejs') %>
     </body>
 
