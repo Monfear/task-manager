@@ -49,13 +49,6 @@ export const getSingleTask = async (req, res) => {
     }
 };
 
-// @ get create
-export const getCreateTask = (req, res) => {
-    res.status(200).render('create.ejs', {
-        title: 'Create',
-    });
-};
-
 // * create
 export const createTask = async (req, res) => {
     try {

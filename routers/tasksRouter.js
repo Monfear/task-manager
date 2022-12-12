@@ -1,13 +1,10 @@
 import { Router } from 'express';
-import { getAllTasks, getSingleTask, updateTask, deleteTask, getCreateTask, createTask } from './../controllers/tasksController.js';
+import { getAllTasks, getSingleTask, updateTask, deleteTask, createTask } from './../controllers/tasksController.js';
 
 const tasksRouter = Router();
 
 tasksRouter.route('/')
-    .get(getAllTasks);
-
-tasksRouter.route('/create')
-    .get(getCreateTask)
+    .get(getAllTasks)
     .post(createTask);
 
 tasksRouter.route('/task/:id')
