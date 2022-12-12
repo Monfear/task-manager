@@ -9,11 +9,14 @@
 
             <% if (tasks.length > 0) { %>
                 <% tasks.forEach((task) => { %>
-                <p><%= task.name %> </p>
+                    <a href="/tasks/task/<%= task.id %> ">
+                        <p><%= task.name %> </p>
+                    </a>
                 <% }) %>
             <% } else { %>
                 <p>no tasks to display</p>
             <% } %>
+            
         <%- include('./../partials/_footer.ejs') %>
     </body>
 

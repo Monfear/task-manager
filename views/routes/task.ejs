@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+        <%- include('./../partials/_head.ejs') %>
+
+    <body>
+        <%- include('./../partials/_navbar.ejs') %>
+
+            <h1>task</h1>
+            <p><%= task.name %> </p>
+            <p><%= task.isCompleted %> </p>
+            <p><%= task.createdAt.toLocaleString() %>  </p>
+            <p><%= task.updatedAt.toLocaleString() %> </p>
+
+        <%- include('./../partials/_footer.ejs') %>
+    </body>
+
+</html>
