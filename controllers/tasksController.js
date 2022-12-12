@@ -1,7 +1,8 @@
+import { checkIfTaskExists } from "../utils/utils.js";
 import Task from "./../models/Task.js";
 
 // @ get all
-export const showAllTasks = async (req, res) => {
+export const getAllTasks = async (req, res) => {
     try {
         const tasks = await Task
             .find()
@@ -16,7 +17,8 @@ export const showAllTasks = async (req, res) => {
 
     } catch (error) {
         res.status(500).render('404.ejs', {
-            title: 'fetch failed'
+            title: 'Error',
+            errMsg: `tasks fetching failed => ${error.message}`
         });
     } finally {
         console.log('showAllTasks has invoken');
@@ -24,27 +26,34 @@ export const showAllTasks = async (req, res) => {
 };
 
 // @ get single
-export const getTask = async (req, res) => {
+export const getSingleTask = async (req, res) => {
     try {
         const taskID = req.params.id;
 
         const task = await Task.findById(taskID);
 
-        if (!task) {
-            return res.status(404).json({
-                errMsg: 'task with provided id doesn\'t exist'
-            });
-        }
+        checkIfTaskExists(res, task);
 
-        res.status(200).json(task);
+        res.status(200).render('task.ejs', {
+            title: 'Task',
+            task: task
+        });
     } catch (error) {
-        res.status(500).json({
+        res.status(500).render('404.ejs', {
+            title: 'Error',
             errMsg: `task fetching failed => ${error.message}`
         });
 
     } finally {
         console.log('getTask has invoken');
     }
+};
+
+// @ get create
+export const getCreateTask = (req, res) => {
+    res.status(200).render('create.ejs', {
+        title: 'Create',
+    });
 };
 
 // * create
@@ -73,11 +82,7 @@ export const updateTask = async (req, res) => {
             runValidators: true,
         });
 
-        if (!task) {
-            return res.status(404).json({
-                errMsg: 'task with provided id doesn\'t exist'
-            });
-        }
+        checkIfTaskExists();
 
         res.status(200).json({
             infoMsg: `task with id: ${taskID} has edited`,
