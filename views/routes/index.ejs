@@ -5,48 +5,209 @@
     <body id="index">
         <%- include('./../partials/_navbar.ejs') %>
 
-            <section class="Home">
-                <form class="form">
-                    <h2 class="form__title">Add new task</h2>
+            <section class="App">
+                <div class="CONTAINER">
 
-                    <div class="form__item">
-                        <input class="form__item__input" id="task" type="text" placeholder="your task">
-                        <label class="form__item__label" for="task">for example clean up the room</label>
-                    </div>
+                    <form class="form">
+                        <h2 class="form__heading">Add new task</h2>
 
-                    <button type="submit">submit</button>
-                </form>
-
-                <main class="tasks">
-                    <article class="task">
-                        <picture class="task__picture">
-                            <i class="task__picture__icon fa-regular fa-square-check"></i>
-                        </picture>
-
-                        <p class="task__text">testing task</p>
-
-                        <div class="task__buttons">
-                            <button class="task__buttons__button">
-                                <i class="task__buttons__button__icon fa-solid fa-pen-to-square"></i>
-                            </button>
-                            <button class="task__buttons__button">
-                                <i class="task__buttons__button__icon fa-solid fa-trash"></i>
-                            </button>
+                        <div class="form__item">
+                            <input class="form__item__input" id="task" type="text" maxlength="30">
+                            <label class="form__item__label" for="task">Enter your new task.</label>
                         </div>
-                    </article>
-                </main>
+
+                        <button class="form__btn" type="submit">submit</button>
+                    </form>
+
+                    <main class="tasks">
+                        <% if (tasks.length > 0) { %>
+                            <% tasks.forEach((task) => { %>
+                                <% if (!task.isCompleted) {%> 
+                                    <article class="tasks__task">
+                                        <picture class="tasks__task__picture">
+                                            <i class="tasks__task__picture__icon fa-solid fa-square-xmark"></i>
+                                        </picture>
+
+                                        <p class="tasks__task__text"><%= task.name %> </p>
+
+                                        <div class="tasks__task__buttons">
+                                                <button class="tasks__task__buttons__button" onclick="location.href = '/tasks/task/<%= task.id %>'">
+                                                    <i class="tasks__task__buttons__button__icon fa-solid fa-pen-to-square"></i>
+                                                </button>
+                                            <button class="tasks__task__buttons__button">
+                                                <i class="tasks__task__buttons__button__icon fa-solid fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </article>
+                                <% } %>
+                            <% }) %>
+                        <% } else { %>
+                            <p>no tasks to display</p>
+                        <% } %>
+
+                        <article class="tasks__task">
+                            <picture class="tasks__task__picture">
+                                <i class="tasks__task__picture__icon fa-solid fa-square-xmark"></i>
+                            </picture>
+
+                            <p class="tasks__task__text">testing task testing task testing task</p>
+
+                            <div class="tasks__task__buttons">
+                                <button class="tasks__task__buttons__button">
+                                    <i class="tasks__task__buttons__button__icon fa-solid fa-pen-to-square"></i>
+                                </button>
+                                <button class="tasks__task__buttons__button">
+                                    <i class="tasks__task__buttons__button__icon fa-solid fa-trash"></i>
+                                </button>
+                            </div>
+                        </article>
+                        <article class="tasks__task">
+                            <picture class="tasks__task__picture">
+                                <i class="tasks__task__picture__icon fa-solid fa-square-xmark"></i>
+                            </picture>
+
+                            <p class="tasks__task__text">testing task</p>
+
+                            <div class="tasks__task__buttons">
+                                <button class="tasks__task__buttons__button">
+                                    <i class="tasks__task__buttons__button__icon fa-solid fa-pen-to-square"></i>
+                                </button>
+                                <button class="tasks__task__buttons__button">
+                                    <i class="tasks__task__buttons__button__icon fa-solid fa-trash"></i>
+                                </button>
+                            </div>
+                        </article>
+                        <article class="tasks__task">
+                            <picture class="tasks__task__picture">
+                                <i class="tasks__task__picture__icon fa-solid fa-square-xmark"></i>
+                            </picture>
+
+                            <p class="tasks__task__text">testing task</p>
+
+                            <div class="tasks__task__buttons">
+                                <button class="tasks__task__buttons__button">
+                                    <i class="tasks__task__buttons__button__icon fa-solid fa-pen-to-square"></i>
+                                </button>
+                                <button class="tasks__task__buttons__button">
+                                    <i class="tasks__task__buttons__button__icon fa-solid fa-trash"></i>
+                                </button>
+                            </div>
+                        </article>
+                        <article class="tasks__task">
+                            <picture class="tasks__task__picture">
+                                <i class="tasks__task__picture__icon fa-solid fa-square-xmark"></i>
+                            </picture>
+
+                            <p class="tasks__task__text">testing task</p>
+
+                            <div class="tasks__task__buttons">
+                                <button class="tasks__task__buttons__button">
+                                    <i class="tasks__task__buttons__button__icon fa-solid fa-pen-to-square"></i>
+                                </button>
+                                <button class="tasks__task__buttons__button">
+                                    <i class="tasks__task__buttons__button__icon fa-solid fa-trash"></i>
+                                </button>
+                            </div>
+                        </article>
+                        <article class="tasks__task">
+                            <picture class="tasks__task__picture">
+                                <i class="tasks__task__picture__icon fa-solid fa-square-xmark"></i>
+                            </picture>
+
+                            <p class="tasks__task__text">testing task</p>
+
+                            <div class="tasks__task__buttons">
+                                <button class="tasks__task__buttons__button">
+                                    <i class="tasks__task__buttons__button__icon fa-solid fa-pen-to-square"></i>
+                                </button>
+                                <button class="tasks__task__buttons__button">
+                                    <i class="tasks__task__buttons__button__icon fa-solid fa-trash"></i>
+                                </button>
+                            </div>
+                        </article>
+                        <article class="tasks__task">
+                            <picture class="tasks__task__picture">
+                                <i class="tasks__task__picture__icon fa-solid fa-square-xmark"></i>
+                            </picture>
+
+                            <p class="tasks__task__text">testing task</p>
+
+                            <div class="tasks__task__buttons">
+                                <button class="tasks__task__buttons__button">
+                                    <i class="tasks__task__buttons__button__icon fa-solid fa-pen-to-square"></i>
+                                </button>
+                                <button class="tasks__task__buttons__button">
+                                    <i class="tasks__task__buttons__button__icon fa-solid fa-trash"></i>
+                                </button>
+                            </div>
+                        </article>
+                        <article class="tasks__task">
+                            <picture class="tasks__task__picture">
+                                <i class="tasks__task__picture__icon fa-solid fa-square-xmark"></i>
+                            </picture>
+
+                            <p class="tasks__task__text">testing task</p>
+
+                            <div class="tasks__task__buttons">
+                                <button class="tasks__task__buttons__button">
+                                    <i class="tasks__task__buttons__button__icon fa-solid fa-pen-to-square"></i>
+                                </button>
+                                <button class="tasks__task__buttons__button">
+                                    <i class="tasks__task__buttons__button__icon fa-solid fa-trash"></i>
+                                </button>
+                            </div>
+                        </article>
+                        <article class="tasks__task">
+                            <picture class="tasks__task__picture">
+                                <i class="tasks__task__picture__icon fa-solid fa-square-xmark"></i>
+                            </picture>
+
+                            <p class="tasks__task__text">testing task</p>
+
+                            <div class="tasks__task__buttons">
+                                <button class="tasks__task__buttons__button">
+                                    <i class="tasks__task__buttons__button__icon fa-solid fa-pen-to-square"></i>
+                                </button>
+                                <button class="tasks__task__buttons__button">
+                                    <i class="tasks__task__buttons__button__icon fa-solid fa-trash"></i>
+                                </button>
+                            </div>
+                        </article>
+                        <article class="tasks__task">
+                            <picture class="tasks__task__picture">
+                                <i class="tasks__task__picture__icon fa-solid fa-square-xmark"></i>
+                            </picture>
+
+                            <p class="tasks__task__text">testing task</p>
+
+                            <div class="tasks__task__buttons">
+                                <button class="tasks__task__buttons__button">
+                                    <i class="tasks__task__buttons__button__icon fa-solid fa-pen-to-square"></i>
+                                </button>
+                                <button class="tasks__task__buttons__button">
+                                    <i class="tasks__task__buttons__button__icon fa-solid fa-trash"></i>
+                                </button>
+                            </div>
+                        </article>
+                        <article class="tasks__task">
+                            <picture class="tasks__task__picture">
+                                <i class="tasks__task__picture__icon fa-solid fa-square-xmark"></i>
+                            </picture>
+
+                            <p class="tasks__task__text">testing task</p>
+
+                            <div class="tasks__task__buttons">
+                                <button class="tasks__task__buttons__button">
+                                    <i class="tasks__task__buttons__button__icon fa-solid fa-pen-to-square"></i>
+                                </button>
+                                <button class="tasks__task__buttons__button">
+                                    <i class="tasks__task__buttons__button__icon fa-solid fa-trash"></i>
+                                </button>
+                            </div>
+                        </article>
+                    </main>
+                </div>
             </section>
-
-            <% if (tasks.length > 0) { %>
-                <% tasks.forEach((task) => { %>
-                    <a href="/tasks/task/<%= task.id %> ">
-                        <p><%= task.name %> </p>
-                    </a>
-                <% }) %>
-            <% } else { %>
-                <p>no tasks to display</p>
-            <% } %>
-
         <%- include('./../partials/_footer.ejs') %>
     </body>
 

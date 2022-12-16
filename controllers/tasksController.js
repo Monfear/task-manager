@@ -10,11 +10,17 @@ export const getAllTasks = async (req, res) => {
                 createdAt: -1,
             });
 
-        res.status(200).render('index.ejs', {
-            title: 'Home',
-            tasks: tasks
-        });
-
+        if (req.path === '/active') {
+            res.status(200).render('index.ejs', {
+                title: 'Home',
+                tasks: tasks
+            });
+        } else if (req.path === '/completed') {
+            res.status(200).render('completed.ejs', {
+                title: 'Completed',
+                tasks: tasks
+            });
+        }
     } catch (error) {
         res.status(500).render('404.ejs', {
             title: 'Error',

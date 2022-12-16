@@ -25,13 +25,14 @@ app.use(showRequestInfo);
 
 // routes
 app.get('/', (req, res) => {
-    res.status(200).redirect('/tasks');
+    res.status(200).redirect('/tasks/active');
 });
 
 app.use('/tasks', tasksRouter);
 
 app.get('*', (req, res) => {
     res.status(404).render('404.ejs', {
-        title: 'Not Found'
+        title: 'Not Found',
+        errMsg: "page doesn\'t exist"
     });
 });

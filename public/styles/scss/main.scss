@@ -1,1 +1,38 @@
-@use './common.scss';
+@use './variables.scss' as *;
+@use './App.scss';
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: $color-grey;
+}
+
+a {
+    text-decoration: none;
+}
+
+picture {
+    display: block;
+}
+
+.CONTAINER {
+    margin: 0 auto;
+    width: 95%;
+
+    @media (min-width: $mq-big) {
+        max-width: 1000px;
+    }
+
+    @media (min-width: $mq-large) {
+        max-width: 1400px;
+    }
+}

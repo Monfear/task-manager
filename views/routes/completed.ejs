@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+        <%- include('./../partials/_head.ejs') %>
+
+    <body id="completed">
+        <%- include('./../partials/_navbar.ejs') %>
+
+        <section class="App">
+            <div class="CONTAINER">
+                <main class="tasks">
+                    <% if (tasks.length > 0) { %>
+                        <% tasks.forEach((task) => { %>
+                            <% if (task.isCompleted) {%>
+                                <article class="tasks__task tasks__task--completed">
+                                    <picture class="tasks__task__picture">
+                                        <i class="tasks__task__picture__icon fa-solid fa-check"></i>
+                                    </picture>
+
+                                    <p class="tasks__task__text"><%= task.name %> </p>
+
+                                    <div class="tasks__task__buttons">
+                                            <button class="tasks__task__buttons__button" onclick="location.href = '/tasks/task/<%= task.id %>'">
+                                                <i class="tasks__task__buttons__button__icon fa-solid fa-pen-to-square"></i>
+                                            </button>
+                                        <button class="tasks__task__buttons__button">
+                                            <i class="tasks__task__buttons__button__icon fa-solid fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </article>
+                            <% } %>
+                        <% }) %>
+                    <% } else { %>
+                        <p>no tasks to display</p>
+                    <% } %>
+            </div>
+        </section>
+        <%- include('./../partials/_footer.ejs') %>
+    </body>
+</html>
