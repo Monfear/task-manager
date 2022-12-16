@@ -1,0 +1,26 @@
+$color-primary: #f5deb3;
+$color-complementary: #51b428;
+$color-grey: #333333;
+$color-grey-dark: #262626;
+$color-white: #ffffff;
+$color-black: #000000;
+
+// media queries
+$mq-xlarge: 1800px;
+$mq-large: 1440px;
+$mq-big: 1024px;
+$mq-medium: 768px;
+$mq-small: 640px;
+
+@mixin container {
+    margin: 0 auto;
+    width: 95%;
+
+    @media (min-width: $mq-big) {
+        max-width: 1000px;
+    }
+
+    @media (min-width: $mq-large) {
+        max-width: 1400px;
+    }
+}
