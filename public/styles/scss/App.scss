@@ -1,8 +1,8 @@
 @use './variables.scss' as *;
 
 .Navbar {
-    // border: 1px solid red;
     background-color: $color-grey;
+    border-bottom: 2px solid $color-complementary;
 
     padding: 0.5rem 0;
 
@@ -52,7 +52,7 @@
 
 .App {
     & .form {
-        padding-top: 5rem;
+        padding-top: 6rem;
         margin-bottom: 2rem;
 
         display: flex;
@@ -109,15 +109,15 @@
     }
 
     & .tasks {
+        margin-bottom: 5rem;
+
         &__task {
             display: flex;
-            padding: 0.7rem 0.2rem;
+            padding: 0.7rem 0.5rem;
             margin-bottom: 1rem;
             box-shadow: 3px 3px 8px 0 $color-black;
 
             &__picture {
-                margin: 0 0.5rem;
-
                 &__icon {
                     &.fa-hourglass-half {}
 
@@ -130,6 +130,7 @@
             &__text {
                 font-weight: bold;
                 color: $color-primary;
+                margin: 0 0.5rem;
             }
 
             &__buttons {
@@ -164,7 +165,7 @@
 }
 
 #completed .App .tasks {
-    padding-top: 5rem;
+    padding-top: 6rem;
 }
 
 .Footer {
@@ -184,3 +185,48 @@
 @media screen and (max-height: $mq-small) {}
 
 @media screen and (orientation: landscape) and (max-height: $mq-small) {}
+
+@media screen and (min-width: $mq-big) {
+    .App {
+        & .form {
+            &__item {
+                &__input {
+                    width: 50%;
+                }
+
+                &__label {
+                    font-size: 1rem;
+                }
+            }
+
+            &__btn {
+                width: 140px;
+                height: 40px;
+                transition: all 0.4s ease-in;
+
+                &:hover {
+                    color: $color-grey;
+                    background-color: $color-complementary;
+                    border-radius: 10px;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .tasks {
+            &__task {
+                &__buttons {
+                    &__button {
+                        cursor: pointer;
+                        font-size: 1.2rem;
+                        // transition: all 0.4s ease-in;
+
+                        &:hover {
+                            transform: scale(1.2);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
