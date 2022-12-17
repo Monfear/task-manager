@@ -115,6 +115,9 @@
 .App .tasks__task__buttons__button__icon.fa-trash {
   color: #911212;
 }
+.App .tasks .info {
+  color: #f5deb3;
+}
 
 #completed .App .tasks {
   padding-top: 5rem;
