@@ -168,6 +168,32 @@
     padding-top: 6rem;
 }
 
+body#task {
+    & section.Task {
+        & .task {
+            &__heading {}
+
+            &__info {
+                &__item {
+                    &__name {}
+
+                    &__value {}
+                }
+            }
+
+            &__form {
+                &__item {
+                    &__input {}
+
+                    &__label {}
+                }
+
+                &__btn {}
+            }
+        }
+    }
+}
+
 .Footer {
     background-color: $color-grey-dark;
     padding: 1rem 0;

@@ -2,8 +2,44 @@
 <html lang="en">
         <%- include('./../partials/_head.ejs') %>
 
-    <body>
+    <body id="task">
         <%- include('./../partials/_navbar.ejs') %>
+
+        <section class="Task">
+            <article class="task">
+                <h1 class="task__heading">edit task</h1>
+
+                <div class="task__info">
+                    <div class="task__info__item">
+                        <p class="task__info__item__name">id</p>
+                        <p class="task__info__item__value">1234</p>
+                    </div>
+                    <div class="task__info__item">
+                        <p class="task__info__item__name">created at</p>
+                        <p class="task__info__item__value">7.12.2022, 11:17:30</p>
+                    </div>
+                    <div class="task__info__item">
+                        <p class="task__info__item__name">updated at</p>
+                        <p class="task__info__item__value">7.12.2022, 11:17:30</p>
+                    </div>
+                </div>
+
+                <form class="task__form" action="">
+                    <div class="task__form__item">
+                        <input class="task__form__item__input" type="text">
+                        <label class="task__form__item__label" for="">name</label>
+                    </div>
+
+                    <div class="task__form__item">
+                        <input class="task__form__item__input" type="checkbox">
+                        <label class="task__form__item__label" for="">completed</label>
+                    </div>
+
+                    <button class="task__form__btn" type="submit">submit</button>
+                </form>
+            </article>
+
+        </section>
 
             <h1>task</h1>
             <p><%= task.name %> </p>
