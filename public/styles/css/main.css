@@ -125,6 +125,76 @@
   padding-top: 6rem;
 }
 
+body#task section.Task {
+  padding-top: 6rem;
+}
+body#task section.Task .task {
+  box-shadow: 2px 2px 5px 2px #262626;
+  padding: 1rem 0.5rem;
+}
+body#task section.Task .task__heading {
+  color: #f5deb3;
+  text-transform: capitalize;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+body#task section.Task .task__info__item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+body#task section.Task .task__info__item__name {
+  color: #51b428;
+  text-transform: capitalize;
+}
+body#task section.Task .task__info__item__value {
+  color: #ffffff;
+}
+body#task section.Task .task__form {
+  margin-top: 3rem;
+}
+body#task section.Task .task__form__item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.6rem;
+}
+body#task section.Task .task__form__item:nth-child(2) {
+  align-items: flex-start;
+}
+body#task section.Task .task__form__item__label {
+  color: #f5deb3;
+  text-transform: capitalize;
+  margin-bottom: 0.3rem;
+}
+body#task section.Task .task__form__item__input[type=text] {
+  padding: 0.5rem 1rem;
+  background-color: #262626;
+  color: #ffffff;
+  font-size: 1rem;
+  outline: none;
+  border: none;
+}
+body#task section.Task .task__form__item__input[type=text]:focus {
+  box-shadow: 0 0 2px 0 #51b428;
+}
+body#task section.Task .task__form__item__input[type=checkbox] {
+  color: red;
+}
+body#task section.Task .task__form__btn {
+  width: 120px;
+  height: 35px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #51b428;
+  border: 2px solid #51b428;
+  background-color: transparent;
+  letter-spacing: 1px;
+  font-size: 14px;
+  display: block;
+  margin: 2rem auto 0;
+}
+
 .Footer {
   background-color: #262626;
   padding: 1rem 0;

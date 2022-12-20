@@ -6,46 +6,46 @@
         <%- include('./../partials/_navbar.ejs') %>
 
         <section class="Task">
-            <article class="task">
-                <h1 class="task__heading">edit task</h1>
+            <div class="CONTAINER">
+                <article class="task">
+                    <h1 class="task__heading">edit task</h1>
 
-                <div class="task__info">
-                    <div class="task__info__item">
-                        <p class="task__info__item__name">id</p>
-                        <p class="task__info__item__value">1234</p>
-                    </div>
-                    <div class="task__info__item">
-                        <p class="task__info__item__name">created at</p>
-                        <p class="task__info__item__value">7.12.2022, 11:17:30</p>
-                    </div>
-                    <div class="task__info__item">
-                        <p class="task__info__item__name">updated at</p>
-                        <p class="task__info__item__value">7.12.2022, 11:17:30</p>
-                    </div>
-                </div>
-
-                <form class="task__form" action="">
-                    <div class="task__form__item">
-                        <input class="task__form__item__input" type="text">
-                        <label class="task__form__item__label" for="">name</label>
+                    <div class="task__info">
+                        <div class="task__info__item">
+                            <p class="task__info__item__name">id</p>
+                            <p class="task__info__item__value"><%= task.id %> </p>
+                        </div>
+                        <div class="task__info__item">
+                            <p class="task__info__item__name">created at</p>
+                            <p class="task__info__item__value"><%= task.createdAt.toLocaleString() %></p>
+                        </div>
+                        <div class="task__info__item">
+                            <p class="task__info__item__name">updated at</p>
+                            <p class="task__info__item__value"><%= task.updatedAt.toLocaleString() %></p>
+                        </div>
                     </div>
 
-                    <div class="task__form__item">
-                        <input class="task__form__item__input" type="checkbox">
-                        <label class="task__form__item__label" for="">completed</label>
-                    </div>
+                    <form class="task__form" action="">
+                        <div class="task__form__item">
+                            <label class="task__form__item__label" for="taskName">name</label>
+                            <input class="task__form__item__input" id="taskName" type="text" value="<%= task.name %>">
+                        </div>
 
-                    <button class="task__form__btn" type="submit">submit</button>
-                </form>
-            </article>
+                        <div class="task__form__item">
+                            <label class="task__form__item__label" for="isCompleted">completed</label>
+                            
+                            <% if (task.isCompleted) { %>
+                                <input class="task__form__item__input" id="isCompleted" type="checkbox" checked>
+                            <% } else { %>
+                                <input class="task__form__item__input" id="isCompleted" type="checkbox">
+                            <% } %>
+                        </div>
 
+                        <button class="task__form__btn" type="submit">submit</button>
+                    </form>
+                </article>
+            </div>
         </section>
-
-            <h1>task</h1>
-            <p><%= task.name %> </p>
-            <p><%= task.isCompleted %> </p>
-            <p><%= task.createdAt.toLocaleString() %>  </p>
-            <p><%= task.updatedAt.toLocaleString() %> </p>
 
         <%- include('./../partials/_footer.ejs') %>
     </body>

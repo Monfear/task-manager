@@ -96,15 +96,7 @@
         &__btn {
             margin-top: 0.6rem;
 
-            width: 120px;
-            height: 35px;
-            text-transform: uppercase;
-            font-weight: bold;
-            color: $color-complementary;
-            border: 2px solid $color-complementary;
-            background-color: transparent;
-            letter-spacing: 1px;
-            font-size: 14px;
+            @include button;
         }
     }
 
@@ -170,25 +162,81 @@
 
 body#task {
     & section.Task {
+        padding-top: 6rem;
+
         & .task {
-            &__heading {}
+            box-shadow: 2px 2px 5px 2px $color-grey-dark;
+            padding: 1rem 0.5rem;
+
+            &__heading {
+                color: $color-primary;
+                text-transform: capitalize;
+                text-align: center;
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
 
             &__info {
                 &__item {
-                    &__name {}
+                    display: flex;
+                    justify-content: space-between;
 
-                    &__value {}
+                    margin-bottom: 0.5rem;
+
+                    &__name {
+                        color: $color-complementary;
+                        text-transform: capitalize;
+                    }
+
+                    &__value {
+                        color: $color-white;
+                    }
                 }
             }
 
             &__form {
+                margin-top: 3rem;
+
                 &__item {
+                    display: flex;
+                    flex-direction: column;
+                    margin-bottom: 0.6rem;
+
+                    &:nth-child(2) {
+                        align-items: flex-start;
+                    }
+
+                    &__label {
+                        color: $color-primary;
+                        text-transform: capitalize;
+                        margin-bottom: 0.3rem;
+                    }
+
                     &__input {}
 
-                    &__label {}
+                    &__input[type='text'] {
+                        padding: 0.5rem 1rem;
+                        background-color: $color-grey-dark;
+                        color: $color-white;
+                        font-size: 1rem;
+                        outline: none;
+                        border: none;
+
+                        &:focus {
+                            box-shadow: 0 0 2px 0 $color-complementary;
+                        }
+                    }
+
+                    &__input[type='checkbox'] {
+                        color: red;
+                    }
                 }
 
-                &__btn {}
+                &__btn {
+                    @include button;
+                    display: block;
+                    margin: 2rem auto 0;
+                }
             }
         }
     }
@@ -240,6 +288,7 @@ body#task {
         }
 
         .tasks {
+
             &__task {
                 &__buttons {
                     &__button {

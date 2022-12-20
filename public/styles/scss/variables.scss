@@ -24,3 +24,15 @@ $mq-small: 640px;
         max-width: 1400px;
     }
 }
+
+@mixin button {
+    width: 120px;
+    height: 35px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: $color-complementary;
+    border: 2px solid $color-complementary;
+    background-color: transparent;
+    letter-spacing: 1px;
+    font-size: 14px;
+}
