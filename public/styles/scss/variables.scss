@@ -35,4 +35,12 @@ $mq-small: 640px;
     background-color: transparent;
     letter-spacing: 1px;
     font-size: 14px;
+    transition: all 0.4s ease-in;
+
+    &:hover {
+        color: $color-grey;
+        background-color: $color-complementary;
+        border-radius: 10px;
+        cursor: pointer;
+    }
 }

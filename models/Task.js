@@ -4,7 +4,7 @@ const taskSchema = new Schema({
     name: {
         type: String,
         required: [true, 'name is required'],
-        maxlength: [25, 'name max length 25'],
+        maxlength: [30, 'name max length 30'],
         trim: true
     },
 

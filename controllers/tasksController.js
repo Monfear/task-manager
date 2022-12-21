@@ -58,12 +58,14 @@ export const getSingleTask = async (req, res) => {
 // * create
 export const createTask = async (req, res) => {
     try {
-        const task = await Task.create(req.body);
+        const task = await Task.create({
+            name: req.body.taskName
+        });
 
-        res.status(201).json(task);
+        res.status(201).redirect('/tasks/active');
     } catch (error) {
         res.status(500).json({
-            errMsg: `task deletion failed => ${error.message}`
+            errMsg: `task creation failed => ${error.message}`
         });
     } finally {
         console.log('createTask has invoken');
