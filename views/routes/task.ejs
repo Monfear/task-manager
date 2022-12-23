@@ -2,6 +2,8 @@
 <html lang="en">
         <%- include('./../partials/_head.ejs') %>
 
+        <script src="/scripts/task.js" type="module" defer></script>
+
     <body id="task">
         <%- include('./../partials/_navbar.ejs') %>
 
@@ -25,15 +27,15 @@
                         </div>
                     </div>
 
-                    <form class="task__form" action="">
+                    <form class="task__form">
                         <div class="task__form__item">
-                            <label class="task__form__item__label" for="taskName">name</label>
+                            <label class="task__form__item__label" for="taskName" name="taskName">name</label>
                             <input class="task__form__item__input" id="taskName" type="text" value="<%= task.name %>">
                         </div>
 
                         <div class="task__form__item">
-                            <label class="task__form__item__label" for="isCompleted">completed</label>
-                            
+                            <label class="task__form__item__label" for="isCompleted" name="isCompleted">completed</label>
+
                             <% if (task.isCompleted) { %>
                                 <input class="task__form__item__input" id="isCompleted" type="checkbox" checked>
                             <% } else { %>

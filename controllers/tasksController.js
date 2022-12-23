@@ -78,18 +78,19 @@ export const updateTask = async (req, res) => {
         const taskID = req.params.id;
         const data = req.body;
 
+        console.log(req.body);
+
         const task = await Task.findByIdAndUpdate(taskID, data, {
             new: true,
             runValidators: true,
         });
 
-        checkIfTaskExists();
+        checkIfTaskExists(res, task);
 
         res.status(200).json({
             infoMsg: `task with id: ${taskID} has edited`,
             updatedData: task,
         });
-
     } catch (error) {
         res.status(500).json({
             errMsg: `task edition failed => ${error.message}`,
