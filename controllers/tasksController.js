@@ -62,7 +62,7 @@ export const createTask = async (req, res) => {
             name: req.body.taskName
         });
 
-        res.status(201).redirect('/tasks/active');
+        res.status(201).redirect(req.originalUrl);
     } catch (error) {
         res.status(500).json({
             errMsg: `task creation failed => ${error.message}`

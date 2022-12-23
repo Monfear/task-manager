@@ -4,7 +4,7 @@ import tasksRouter from "./routers/tasksRouter.js";
 import connectDB from "./db/connection.js";
 import showRequestInfo from "./middlewares/showRequestInfo.js";
 
-// setup app
+// app
 const app = express();
 const port = 3000;
 
@@ -20,14 +20,9 @@ app.set('views', 'views/routes');
 
 // middlewares
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static('./public'));
 app.use(showRequestInfo);
-app.use(express.urlencoded(
-    {
-        extended: true,
-    }
-));
-
 
 // routes
 app.get('/', (req, res) => {

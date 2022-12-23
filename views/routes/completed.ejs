@@ -2,6 +2,8 @@
 <html lang="en">
         <%- include('./../partials/_head.ejs') %>
 
+        <script src="/scripts/index.js" defer></script>
+
     <body id="completed">
         <%- include('./../partials/_navbar.ejs') %>
 
@@ -22,7 +24,7 @@
                                             <button class="tasks__task__buttons__button" onclick="location.href = '/tasks/task/<%= task.id %>'">
                                                 <i class="tasks__task__buttons__button__icon fa-solid fa-pen-to-square"></i>
                                             </button>
-                                        <button class="tasks__task__buttons__button">
+                                        <button class="tasks__task__buttons__button" onclick="deleteTask('<%= task.id %>')">
                                             <i class="tasks__task__buttons__button__icon fa-solid fa-trash"></i>
                                         </button>
                                     </div>

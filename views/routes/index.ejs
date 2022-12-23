@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <%- include('./../partials/_head.ejs') %>
-    <script src="/scripts/index.js" type="module" defer></script>
+
+    <script src="/scripts/index.js" defer></script>
 
     <body id="index">
         <%- include('./../partials/_navbar.ejs') %>
@@ -29,13 +30,13 @@
                                             <i class="tasks__task__picture__icon fa-regular fa-hourglass-half"></i>
                                         </picture>
 
-                                        <p class="tasks__task__text"><%= task.name %> </p>
+                                        <p class="tasks__task__text"><%= task.name %></p>
 
                                         <div class="tasks__task__buttons">
                                                 <button class="tasks__task__buttons__button" onclick="location.href = '/tasks/task/<%= task.id %>'">
                                                     <i class="tasks__task__buttons__button__icon fa-solid fa-pen-to-square"></i>
                                                 </button>
-                                            <button class="tasks__task__buttons__button">
+                                            <button class="tasks__task__buttons__button" onclick="deleteTask('<%= task.id %>')">
                                                 <i class="tasks__task__buttons__button__icon fa-solid fa-trash"></i>
                                             </button>
                                         </div>
