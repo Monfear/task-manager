@@ -1,4 +1,4 @@
-# SpaceX - Space Exploration Technologies Corporation
+# Task Manager - Manage your tasks
 
 <img src="./public/img/logo.png" width="100" height="">
 
